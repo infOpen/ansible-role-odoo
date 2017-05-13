@@ -7,3 +7,11 @@
   tags:
     - 'role::odoo'
     - 'role::odoo::init'
+
+
+- name: 'INSTALL | Manage installation tasks by OS family'
+  become: True
+  include: "{{ role_path }}/tasks/install/{{ ansible_os_family | lower }}_family.yml"
+  tags:
+    - 'role::odoo'
+    - 'role::odoo::install'
