@@ -10,6 +10,15 @@
   with_items: "{{ odoo_system_prerequisites }}"
 
 
+- name: 'INSTALL | APT | Install wkhtmltox package'
+  apt:
+    deb: "{{ odoo_package_wkhtmltox.url }}"
+    state: "{{ odoo_package_wkhtmltox.state | default('present') }}"
+  when:
+    - 'odoo_package_wkhtmltox != {}'
+    - "odoo_package_wkhtmltox.url != ''"
+
+
 - name: 'INSTALL | APT | Configure repositories GPG keys'
   apt_key:
     url: "{{ item.url }}"

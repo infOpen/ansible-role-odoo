@@ -1,0 +1,6 @@
+---
+
+# Ubuntu distributions specific vars
+_odoo_packages:
+  - name: 'odoo'
+  - name: 'wkhtmltopdf'
