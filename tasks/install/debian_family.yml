@@ -7,6 +7,7 @@
     name: "{{ item.name }}"
     state: "{{ item.state | default('present') }}"
     cache_valid_time: "{{ odoo_repository_cache_valid_time }}"
+  notify: 'HANDLER | Restart Odoo'
   with_items: "{{ odoo_system_prerequisites }}"
 
 
@@ -14,6 +15,7 @@
   apt:
     deb: "{{ odoo_package_wkhtmltox.url }}"
     state: "{{ odoo_package_wkhtmltox.state | default('present') }}"
+  notify: 'HANDLER | Restart Odoo'
   when:
     - 'odoo_package_wkhtmltox != {}'
     - "odoo_package_wkhtmltox.url != ''"
@@ -30,6 +32,7 @@
   apt_repository:
     repo: "{{ item.repo }}"
     state: "{{ item.state | default('present') }}"
+  notify: 'HANDLER | Restart Odoo'
   with_items: "{{ odoo_repositories }}"
 
 
@@ -38,4 +41,5 @@
     name: "{{ item.name }}"
     state: "{{ item.state | default('present') }}"
     cache_valid_time: "{{ odoo_repository_cache_valid_time }}"
+  notify: 'HANDLER | Restart Odoo'
   with_items: "{{ odoo_packages }}"
