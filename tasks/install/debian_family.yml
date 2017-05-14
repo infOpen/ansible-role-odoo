@@ -6,7 +6,6 @@
   apt:
     name: "{{ item.name }}"
     state: "{{ item.state | default('present') }}"
-    version: "{{ item.version | default(omit) }}"
     cache_valid_time: "{{ odoo_repository_cache_valid_time }}"
   with_items: "{{ odoo_system_prerequisites }}"
 
@@ -29,6 +28,5 @@
   apt:
     name: "{{ item.name }}"
     state: "{{ item.state | default('present') }}"
-    version: "{{ item.version | default(omit) }}"
     cache_valid_time: "{{ odoo_repository_cache_valid_time }}"
   with_items: "{{ odoo_packages }}"
