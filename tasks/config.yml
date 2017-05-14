@@ -4,6 +4,7 @@
 
 - name: 'CONFIG | Update configuration file settings'
   ini_file:
+    path: "{{ odoo_config_file_path }}"
     option: "{{ item.option }}"
     value: "{{ item.value }}"
     section: "{{ item.section | default('options') }}"
