@@ -1,0 +1,17 @@
+---
+
+# Debian family variables
+
+# Packages management
+_odoo_packages:
+  - name: 'odoo'
+_odoo_repositories:
+  - repo: "deb http://nightly.odoo.com/{{ odoo_version }}/nightly/deb/ ./"
+_odoo_repositories_keys:
+  - url: 'https://nightly.odoo.com/odoo.key'
+_odoo_system_prerequisites:
+  - name: 'ca-certificates'
+
+# Service management
+_odoo_service:
+  name: 'odoo'

@@ -1,3 +1,17 @@
 ---
 
 # Defaults vars file for odoo role
+
+# Packages management
+odoo_packages: "{{ _odoo_packages }}"
+odoo_package_wkhtmltox: "{{ _odoo_package_wkhtmltox | default({}) }}"
+odoo_repositories: "{{ _odoo_repositories }}"
+odoo_repositories_keys: "{{ _odoo_repositories_keys }}"
+odoo_repository_cache_valid_time: 3600
+odoo_system_prerequisites: "{{ _odoo_system_prerequisites }}"
+
+# Service management
+odoo_service: "{{ _odoo_service }}"
+
+# General
+odoo_version: '10.0'

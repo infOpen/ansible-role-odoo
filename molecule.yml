@@ -16,9 +16,6 @@ docker:
     - name: 'odoo-docker-jessie'
       image: 'debian'
       image_version: 'jessie'
-    - name: 'odoo-docker-trusty'
-      image: 'ubuntu'
-      image_version: 'trusty'
     - name: 'odoo-docker-xenial'
       image: 'ubuntu'
       image_version: 'xenial'
@@ -32,9 +29,6 @@ vagrant:
   platforms:
     - name: 'jessie64'
       box: 'debian/jessie64'
-      linked_clone: True
-    - name: 'trusty64'
-      box: 'ubuntu/trusty64'
       linked_clone: True
     - name: 'xenial64'
       box: 'ubuntu/xenial64'
