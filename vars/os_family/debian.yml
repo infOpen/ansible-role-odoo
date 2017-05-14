@@ -11,3 +11,7 @@ _odoo_repositories_keys:
   - url: 'https://nightly.odoo.com/odoo.key'
 _odoo_system_prerequisites:
   - name: 'ca-certificates'
+
+# Service management
+_odoo_service:
+  name: 'odoo'

@@ -10,5 +10,8 @@ odoo_repositories_keys: "{{ _odoo_repositories_keys }}"
 odoo_repository_cache_valid_time: 3600
 odoo_system_prerequisites: "{{ _odoo_system_prerequisites }}"
 
+# Service management
+odoo_service: "{{ _odoo_service }}"
+
 # General
 odoo_version: '10.0'
