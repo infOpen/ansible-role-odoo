@@ -10,4 +10,5 @@
   when: "odoo_service.state | default('started') != 'stopped'"
   tags:
     - 'role::odoo'
+    - 'role::odoo::config'
     - 'role::odoo::install'
