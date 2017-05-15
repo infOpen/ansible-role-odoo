@@ -17,4 +17,4 @@ _odoo_service:
   name: 'odoo'
 
 # Configuration
-_odoo_config_file_path: '/etc/odoo/odoo.conf'
+_odoo_config_file_path: "/etc/odoo/{{ odoo_config_file_name }}"
