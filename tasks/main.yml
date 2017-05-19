@@ -17,6 +17,14 @@
     - 'role::odoo::install'
 
 
+- name: 'CONFIG | Manage configuration tasks'
+  become: True
+  include: "{{ role_path }}/tasks/config.yml"
+  tags:
+    - 'role::odoo'
+    - 'role::odoo::config'
+
+
 - name: 'INSTALL | Manage Odoo service'
   become: True
   service:
@@ -25,4 +33,5 @@
     state: "{{ odoo_service.state | default('started') }}"
   tags:
     - 'role::odoo'
+    - 'role::odoo::config'
     - 'role::odoo::install'

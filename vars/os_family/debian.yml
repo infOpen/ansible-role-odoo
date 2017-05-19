@@ -15,3 +15,6 @@ _odoo_system_prerequisites:
 # Service management
 _odoo_service:
   name: 'odoo'
+
+# Configuration
+_odoo_config_file_path: "/etc/odoo/{{ odoo_config_file_name }}"

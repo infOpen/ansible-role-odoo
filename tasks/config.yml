@@ -1,0 +1,13 @@
+---
+
+# Configuration tasks
+
+- name: 'CONFIG | Update configuration file settings'
+  ini_file:
+    path: "{{ odoo_config_file_path }}"
+    option: "{{ item.option }}"
+    value: "{{ item.value }}"
+    section: "{{ item.section | default('options') }}"
+    state: "{{ item.state | default('present') }}"
+  notify: 'HANDLER | Restart Odoo'
+  with_items: "{{ odoo_config_options }}"
