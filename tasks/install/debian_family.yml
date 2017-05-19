@@ -1,0 +1,45 @@
+---
+
+# Debian family installation tasks
+
+- name: 'INSTALL | APT | Install system prerequisites'
+  apt:
+    name: "{{ item.name }}"
+    state: "{{ item.state | default('present') }}"
+    cache_valid_time: "{{ odoo_repository_cache_valid_time }}"
+  notify: 'HANDLER | Restart Odoo'
+  with_items: "{{ odoo_system_prerequisites }}"
+
+
+- name: 'INSTALL | APT | Install wkhtmltox package'
+  apt:
+    deb: "{{ odoo_package_wkhtmltox.url }}"
+    state: "{{ odoo_package_wkhtmltox.state | default('present') }}"
+  notify: 'HANDLER | Restart Odoo'
+  when:
+    - 'odoo_package_wkhtmltox != {}'
+    - "odoo_package_wkhtmltox.url != ''"
+
+
+- name: 'INSTALL | APT | Configure repositories GPG keys'
+  apt_key:
+    url: "{{ item.url }}"
+    state: "{{ item.state | default('present') }}"
+  with_items: "{{ odoo_repositories_keys }}"
+
+
+- name: 'INSTALL | APT | Configure repositories'
+  apt_repository:
+    repo: "{{ item.repo }}"
+    state: "{{ item.state | default('present') }}"
+  notify: 'HANDLER | Restart Odoo'
+  with_items: "{{ odoo_repositories }}"
+
+
+- name: 'INSTALL | APT | Install Odoo packages'
+  apt:
+    name: "{{ item.name }}"
+    state: "{{ item.state | default('present') }}"
+    cache_valid_time: "{{ odoo_repository_cache_valid_time }}"
+  notify: 'HANDLER | Restart Odoo'
+  with_items: "{{ odoo_packages }}"

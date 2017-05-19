@@ -1,0 +1,37 @@
+---
+
+# Main tasks file for odoo role
+
+- name: 'INIT | Manage variables to use for our target'
+  include: "{{ role_path }}/tasks/manage_variables.yml"
+  tags:
+    - 'role::odoo'
+    - 'role::odoo::init'
+
+
+- name: 'INSTALL | Manage installation tasks by OS family'
+  become: True
+  include: "{{ role_path }}/tasks/install/{{ ansible_os_family | lower }}_family.yml"
+  tags:
+    - 'role::odoo'
+    - 'role::odoo::install'
+
+
+- name: 'CONFIG | Manage configuration tasks'
+  become: True
+  include: "{{ role_path }}/tasks/config.yml"
+  tags:
+    - 'role::odoo'
+    - 'role::odoo::config'
+
+
+- name: 'INSTALL | Manage Odoo service'
+  become: True
+  service:
+    name: "{{ odoo_service.name }}"
+    enabled: "{{ odoo_service.enabled | default(True) }}"
+    state: "{{ odoo_service.state | default('started') }}"
+  tags:
+    - 'role::odoo'
+    - 'role::odoo::config'
+    - 'role::odoo::install'

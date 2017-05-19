@@ -1,0 +1,14 @@
+---
+
+# Handlers main file for odoo role
+
+- name: 'HANDLER | Restart Odoo'
+  become: True
+  service:
+    name: "{{ odoo_service.name }}"
+    state: 'restarted'
+  when: "odoo_service.state | default('started') != 'stopped'"
+  tags:
+    - 'role::odoo'
+    - 'role::odoo::config'
+    - 'role::odoo::install'

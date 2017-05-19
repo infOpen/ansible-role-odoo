@@ -1,0 +1,5 @@
+---
+
+# Debian Jessie specific variables
+_odoo_package_wkhtmltox:
+  url: 'https://nightly.odoo.com/extra/wkhtmltox-0.12.1.2_linux-jessie-amd64.deb'
