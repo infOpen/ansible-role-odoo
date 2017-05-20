@@ -2,6 +2,8 @@
 
 [![Build Status](https://img.shields.io/travis/infOpen/ansible-role-odoo/master.svg?label=travis_master)](https://travis-ci.org/infOpen/ansible-role-odoo)
 [![Build Status](https://img.shields.io/travis/infOpen/ansible-role-odoo/develop.svg?label=travis_develop)](https://travis-ci.org/infOpen/ansible-role-odoo)
+[![Updates](https://pyup.io/repos/github/infOpen/ansible-role-odoo/shield.svg)](https://pyup.io/repos/github/infOpen/ansible-role-odoo/)
+[![Python 3](https://pyup.io/repos/github/infOpen/ansible-role-odoo/python-3-shield.svg)](https://pyup.io/repos/github/infOpen/ansible-role-odoo/)
 
 Install odoo package.
 
